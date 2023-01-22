@@ -1,21 +1,7 @@
 ## Installation
 
-If you have the node package manager, npm, installed:
+Just a bunch of bash aliases that are probably pretty perculiar to me
 
 ```shell
-npm install sfinktah/bash-helpers
-cd node_modules/bash-helpers
-npm test
+git clone https://github.com/sfinktah/bash-helpers.git ~/bin
 ```
-
-Or via git
-
-```shell
-git clone https://github.com/sfinktah/bash-helpers.git
-cd bash-helpers
-npm install
-npm test
-```
-
-## Getting Started 
-"
