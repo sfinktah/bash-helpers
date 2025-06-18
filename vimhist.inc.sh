@@ -36,7 +36,7 @@ vimhist ()
     local el;
     sed "/^# Command Line History/a :@@marker@@$$ '$*'" ~/.viminfo > ~/.viminfo.$$;
     vim -i ~/.viminfo.$$ "$@";
-    sed -n "/# Command Line History/,/:@@marker@@$$/p" ~/.viminfo.$$ | tee -a ~/.viminfo.history;
+    sed -n "/# Command Line History/,/^# /p" ~/.viminfo.$$ | tee -a ~/.viminfo.history;
     rm -f ~/.viminfo.$$
 }
 vimhist () 
@@ -51,10 +51,13 @@ vimhist ()
 vimhist () 
 { 
     # Replace this later with an intelligent gathering of history
-    cp ~/.viminfo ~/.viminfo.$$
-    local el;
-    vim -i ~/.viminfo.$$ "$@";
-    el=$?;
-    sed -n "/# Command Line History/,/:@@marker@@$$/p" ~/.viminfo.$$ | tee -a ~/.viminfo.history;
-    rm -f ~/.viminfo.$$
+    # cp ~/.viminfo ~/.viminfo.$$
+    #sed "/^# Command Line History/a ^# '$*'" ~/.viminfo > ~/.viminfo.$$;
+    #local el;
+    #vim -i ~/.viminfo.$$ "$@";
+    vim "$@";
+    #el=$?;
+    #sed -n "/# Command Line History/,/^# /p" ~/.viminfo.$$ | tee -a ~/.viminfo.history;
+    #sed -n "/# Search String History/,/^# /p" ~/.viminfo.$$ | tee -a ~/.viminfo.search-history;
+    #rm -f ~/.viminfo.$$
 }
