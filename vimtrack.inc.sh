@@ -25,6 +25,7 @@ vimtrack ()
 }
 vimtrack () 
 { 
+    . include realpath
     local el;
     if [[ $# == 1 ]]; then
         if test -f "$@"; then
